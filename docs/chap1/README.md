@@ -1,32 +1,49 @@
-# Hướng Dẫn Cài Đặt Packer Trên Ubuntu 22.04
+# 📄 Packer Installation Guide on Ubuntu 22.04
 
-Packer là công cụ của HashiCorp dùng để tạo các image máy ảo hoặc container. Hướng dẫn này sẽ giúc bạn cài đặt Packer trên Ubuntu 22.04 thông qua repository chính thức của HashiCorp.
+Packer is a tool by HashiCorp used to create virtual machine or container images. This guide will help you install Packer on Ubuntu 22.04 via HashiCorp’s official repository.
 
 ---
 
-## 📦 Các Bước Cài Đặt
+## 📦 Install Required Packages
 
-### Bước 1️⃣: Thêm GPG Key của HashiCorp
+Before deploying infrastructure, install the following essential packages:
+
+```bash
+sudo apt install genisoimage -y
+sudo apt install qemu-kvm bridge-utils virt-manager -y
+sudo apt-get install mkisofs -y
+```
+
+- `genisoimage` is used for generating ISO images (for example, when working with cloud-init).
+- `qemu-kvm`, `bridge-utils`, and `virt-manager` are useful for managing virtual machines locally.
+- `mkisofs` provides ISO 9660 filesystem creation utilities.
+- `-y` automatically confirms the installation prompt.
+
+
+
+## 📦 Installation Steps
+
+### Step 1️⃣: Add HashiCorp’s GPG Key
 
 ```bash
 curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -
 ```
 
-> **Ghi chú:** Lệnh này giúp thêm khoá xác thực của HashiCorp vào hệ thống.
+> **Note:** This command adds HashiCorp’s authentication key to your system.
 
 ---
 
-### Bước 2️⃣: Thêm Repository của HashiCorp
+### Step 2️⃣: Add the HashiCorp Repository
 
 ```bash
 sudo apt-add-repository "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main"
 ```
 
-> **Ghi chú:** Dùng `lsb_release -cs` để tự động lấy tên mã phiên bản Ubuntu hiện tại (vd: `jammy` cho 22.04).
+> **Note:** The `lsb_release -cs` command automatically retrieves your current Ubuntu codename (e.g., `jammy` for 22.04).
 
 ---
 
-### Bước 3️⃣: Cập Nhật Danh Sách Gói và Cài Đặt Packer
+### Step 3️⃣: Update Package List and Install Packer
 
 ```bash
 sudo apt-get update && sudo apt-get install packer
@@ -34,26 +51,26 @@ sudo apt-get update && sudo apt-get install packer
 
 ---
 
-### Bước 4️⃣: Kiểm Tra Phiên Bản Packer
+### Step 4️⃣: Verify Packer Version
 
 ```bash
 packer version
 ```
 
-> **Kết quả mong đợi:**  
+> **Expected output:**  
 > ```bash
 > Packer v1.11.0
 > ```
 
 ---
 
-## 📌 Lưu Ý
+## 📌 Notes
 
-- Cách cài đặt này sử dụng `apt-key` — từ Ubuntu 22.04 trở đi, lệnh này đã bị deprecated.  
-- Để bảo mật và chuẩn best practice hơn, bạn có thể tham khảo phương án thay thế với `gpg --dearmor` [tại đây](https://developer.hashicorp.com/packer/install).
+- This installation method uses `apt-key` — starting from Ubuntu 22.04, this command is deprecated.
+- For a more secure and best practice approach, you can refer to the alternative method using `gpg --dearmor` [here](https://developer.hashicorp.com/packer/install).
 
 ---
 
-## ✅ Hoàn Tất!
+## ✅ Done!
 
-Bạn đã cài đặt thành công Packer trên Ubuntu 22.04 và sẵn sàng sử dụng với lệnh `packer build`.
+You’ve successfully installed Packer on Ubuntu 22.04 and are ready to use it with the `packer build` command.

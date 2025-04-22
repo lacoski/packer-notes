@@ -32,4 +32,6 @@ rm -f /var/lib/systemd/random-seed
 echo "==> Clear the history so our install isn't there"
 rm -f /root/.wget-hsts
 
+rm -rf /var/lib/cloud/*
+
 export HISTSIZE=0

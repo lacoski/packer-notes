@@ -18,13 +18,13 @@ Update the `scripts/install.sh` script to manage what packages are installed dur
 Install required plugins:
 
 ```shell
-$ packer init ubuntu.pkr.hcl
+$ sudo packer init ubuntu.pkr.hcl
 ```
 
 Run the Packer build. By default an Ubuntu 22.04 (jammy) image is built:
 
 ```shell
-$ packer build ubuntu.pkr.hcl
+$ sudo packer build ubuntu.pkr.hcl
 ==> qemu.ubuntu: Retrieving ISO
 ==> qemu.ubuntu: Trying https://cloud-images.ubuntu.com/jammy/current/jammy-server-cloudimg-amd64.img
 ...
@@ -54,7 +54,7 @@ See available versions on the [Ubuntu Cloud Images](https://cloud-images.ubuntu.
 For example, pass `-var ubuntu_version=focal` to build with the Ubuntu 20.04 "focal" image:
 
 ```shell
-$ packer build -var ubuntu_version=focal ubuntu.pkr.hcl
+$ sudo packer build -var ubuntu_version=focal ubuntu.pkr.hcl
 ==> qemu.ubuntu: Retrieving ISO
 ==> qemu.ubuntu: Trying https://cloud-images.ubuntu.com/focal/current/focal-server-cloudimg-amd64.img
 ...
@@ -73,7 +73,7 @@ Build 'qemu.ubuntu' finished after 1 minute 55 seconds.
 Pass or set the environment variable `PACKER_LOG=1` to provide additional debug logging output to help troubleshoot build issues.
 
 ```shell
-$ PACKER_LOG=1 packer build ubuntu.pkr.hcl
+$ sudo PACKER_LOG=1 packer build ubuntu.pkr.hcl
 2023/02/05 14:48:44 [INFO] Packer version: 1.8.5 [go1.19.4 linux amd64]
 2023/02/05 14:48:44 [TRACE] discovering plugins in /usr/bin
 2023/02/05 14:48:44 [TRACE] discovering plugins in /home/user/.config/packer/plugins
