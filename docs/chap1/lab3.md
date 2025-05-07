@@ -107,3 +107,6 @@ This tutorial guides you through configuring UFW, adding an SSH banner, and inst
     Save and exit the editor.
 
 5.  **Access Webpage:** Open a browser on your host machine and navigate to the IP address of your Ubuntu VM (find it using `ip a` or `hostname -I` in the VM). You should see "This is application web".
+
+
+Video: https://youtu.be/x-WLrEC2KE0
