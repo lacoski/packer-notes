@@ -22,7 +22,8 @@ resource "libvirt_pool" "ubuntu" {
 resource "libvirt_volume" "ubuntu-qcow2-now" {
   name   = "ubuntu-qcow2-now"
   pool   = libvirt_pool.ubuntu.name
-  source = "/home/thanhnb/github/packer-notes/docs/chap2/output-jammy/ubuntu-jammy.img"
+  source = "/home/ubuntu/github/packer-notes/docs/chap2/output-jammy/ubuntu-jammy.img"
+  # source = "/home/thanhnb/github/packer-notes/docs/chap2/output-jammy/ubuntu-jammy.img"
   # source = "https://cloud-images.ubuntu.com/releases/xenial/release/ubuntu-16.04-server-cloudimg-amd64-disk1.img"
   format = "qcow2"
 }

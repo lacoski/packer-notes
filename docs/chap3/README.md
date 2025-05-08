@@ -2,6 +2,13 @@
 
 ---
 
+## Disable apparmor
+
+```
+sudo systemctl stop apparmor
+sudo systemctl disable apparmor
+```
+
 ## 📦 Install Required Package
 
 Before deploying infrastructure, install the `genisoimage` package.
