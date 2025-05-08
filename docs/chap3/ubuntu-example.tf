@@ -15,7 +15,7 @@ provider "libvirt" {
 resource "libvirt_pool" "ubuntu" {
   name = "ubuntu3"
   type = "dir"
-  path = "/tmp/terraform-provider-libvirt-pool-ubuntu3"
+  path = "/srv/vms/terraform-provider-libvirt-pool-ubuntu3"
 }
 
 # We fetch the latest ubuntu release image from their mirrors
