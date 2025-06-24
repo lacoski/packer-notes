@@ -1,0 +1,19 @@
+#cloud-config
+password: ubuntu
+ssh_pwauth: true
+
+runcmd:
+  - sed -i -e '/^#PermitRootLogin/s/^.*$/PermitRootLogin yes/' /etc/ssh/sshd_config
+
+chpasswd:
+  list: |
+    root:test123
+    ubuntu:ubuntu
+  expire: false
+
+# |-  Shutdown/reboot after all config modules have been run
+power_state:
+    delay: now
+    mode: reboot
+    message: First reboot
+    condition: true
